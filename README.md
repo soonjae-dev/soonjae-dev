@@ -60,4 +60,4 @@ NumPy / SciPy · Git
 
 ### Contact
 
-naver7737@gmail.com
+soonjae.dev@gmail.com
