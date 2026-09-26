@@ -10,7 +10,7 @@ so both repositories now document the failure alongside the fix.
 
 ### Selected work
 
-**[physics-ml-foundations](https://github.com/soonjae-dev/physics-ml-foundations)**
+**[Physics-ML-Foundations](https://github.com/soonjae-dev/Physics-ML-Foundations)**
 Numerical methods from a physics curriculum — Fourier and wavelet transforms,
 SVD and power iteration, compressed sensing, physics-informed neural networks —
 written as runnable code and mapped to where the same mathematics appears in
@@ -29,16 +29,22 @@ producing an error:
   — at R² = 0.83.
 
 **[IVF-Pregnancy-Prediction](https://github.com/soonjae-dev/IVF-Pregnancy-Prediction)**
-Ensemble pipeline for the LG Aimers hackathon: GAIN imputation, SMOTE, Optuna
-tuning, stacking and weighted ensembles over 256,351 records. The reported CV
-ROC-AUC of 0.89 was inflated — SMOTE had been applied before the
-cross-validation split, so synthetic points interpolated from a sample could
-land in a training fold while the sample itself sat in validation. Moving the
-resampling inside the fold gives **0.7304 AUC / 0.5068 F1** out-of-fold, a drop
-of 0.18. The repository reports the corrected figures and the size of the gap.
+Pregnancy-outcome prediction for the LG Aimers hackathon over 256,351 treatment
+records. The originally reported CV ROC-AUC of 0.89 was inflated by two leaks:
+SMOTE applied before the cross-validation split, and the target column passed
+into the GAIN imputer. With both fixed and the hyperparameters re-tuned under a
+leakage-free protocol, the pipeline scores **0.7385 ROC-AUC / 0.5156 F1**
+out-of-fold. Measured against that corrected baseline, SMOTE lost in all four
+models and was removed, and the ensembles add only +0.0002 AUC, so a single
+LightGBM is the default. The repository reports each leak alongside the size
+of its effect.
 
 **[EV-Price-Prediction](https://github.com/soonjae-dev/EV-Price-Prediction)**
-Used electric-vehicle price modelling from battery capacity and specifications.
+Used electric-vehicle price modelling for a DACON competition (7,497 cars).
+The final model reaches RMSE 1.53 million won (R² 0.998) — but a 21-row lookup
+table of mean price per model name already reaches R² 0.988. The README reports
+the full baseline ladder, and what the specifications add on top of the model
+name: RMSE 4.09 → 1.53.
 
 ### Background
 
