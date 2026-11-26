@@ -39,8 +39,9 @@
 
 | Area | Interests |
 | :--- | :--- |
+| **Time-series Forecasting** | 기상·에너지 등 실측 데이터 기반 시계열 예측 |
+| **Data Analytics** | 대규모 정형 데이터의 전처리, 특징 설계, 머신러닝 기반 분석 |
 | **Model Validation** | 시계열 교차검증 설계, 기준선 대비 성능 평가 |
-| **Time-series Forecasting** | 수치예보(NWP) 등 외부 데이터를 활용한 시계열 예측 |
 
 ## Toolkit
 
